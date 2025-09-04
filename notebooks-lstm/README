@@ -1,0 +1,38 @@
+# -------------- 1.Stage
+
+✅ What You’re Doing Well
+
+Loading & Preprocessing Data from MinIO
+
+✅ You correctly load the preprocessed CSV from MinIO.
+
+✅ The timestamp column is parsed and set as index — good for time series.
+
+✅ You isolate the target feature: ac3-node-1-vm_cpu_pct.
+
+Normalization
+
+✅ MinMaxScaler is used to normalize values between 0 and 1.
+
+✅ Timestamp is excluded from scaling — correct.
+
+✅ Scaler is saved to MinIO — nice for reproducibility and inverse transforms later.
+
+Sliding Window Sequence Creation
+
+✅ Your create_sequences() function is correct.
+
+✅ You reshape the data to [samples, time_steps, 1], which is the correct shape for LSTM models.
+
+Train/Test Split
+
+✅ You split data without shuffling (correct for time series).
+
+✅ You wrap the NumPy arrays into PyTorch TensorDataset and then use DataLoader — perfectly done.
+
+
+
+
+
+#-----------------------------2.Stage
+
