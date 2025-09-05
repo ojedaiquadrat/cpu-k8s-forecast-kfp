@@ -1,0 +1,152 @@
+[
+  {
+    "trial_number": 0,
+    "value": 0.0005527776212507295,
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 3,
+      "dropout": 0.21594938963242113,
+      "lr": 0.001035867811094136,
+      "batch_size": 16,
+      "epochs": 27,
+      "patience": 4
+    },
+    "state": "1",
+    "mlflow_run_id": "f1eece9b992d46228d4fc12b0726b558"
+  },
+  {
+    "trial_number": 1,
+    "value": 0.0005516582446244473,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 2,
+      "dropout": 0.13146413348549732,
+      "lr": 0.0002057123347351767,
+      "batch_size": 32,
+      "epochs": 16,
+      "patience": 5
+    },
+    "state": "1",
+    "mlflow_run_id": "c91fe35b9c07423397a3932958d482e0"
+  },
+  {
+    "trial_number": 2,
+    "value": 0.0005883132114324199,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 3,
+      "dropout": 0.026820471100354393,
+      "lr": 0.0034939485416015234,
+      "batch_size": 16,
+      "epochs": 26,
+      "patience": 8
+    },
+    "state": "1",
+    "mlflow_run_id": "7aff3d53f7e14ad48e059d4f89d59965"
+  },
+  {
+    "trial_number": 3,
+    "value": 0.0005895734918953548,
+    "params": {
+      "hidden_size": 48,
+      "num_layers": 3,
+      "dropout": 0.12974596361687527,
+      "lr": 0.0018237788732962288,
+      "batch_size": 16,
+      "epochs": 24,
+      "patience": 10
+    },
+    "state": "1",
+    "mlflow_run_id": "2c8e8991476245a38f0f39e401b374e1"
+  },
+  {
+    "trial_number": 4,
+    "value": 0.0007164971448360155,
+    "params": {
+      "hidden_size": 48,
+      "num_layers": 3,
+      "dropout": 0.32268152115910104,
+      "lr": 0.003671774149292361,
+      "batch_size": 16,
+      "epochs": 47,
+      "patience": 3
+    },
+    "state": "1",
+    "mlflow_run_id": "7262ab5bd42347c09c86d0be01320a3f"
+  },
+  {
+    "trial_number": 5,
+    "value": 0.0006404745867117667,
+    "params": {
+      "hidden_size": 64,
+      "num_layers": 2,
+      "dropout": 0.09033688524389612,
+      "lr": 0.003103161141244499,
+      "batch_size": 32,
+      "epochs": 19,
+      "patience": 7
+    },
+    "state": "1",
+    "mlflow_run_id": "193f41038c5548389bb3291949bb5fa3"
+  },
+  {
+    "trial_number": 6,
+    "value": 0.0005471934855449945,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 3,
+      "dropout": 0.13959564423989423,
+      "lr": 0.00017799899768228584,
+      "batch_size": 32,
+      "epochs": 35,
+      "patience": 10
+    },
+    "state": "1",
+    "mlflow_run_id": "879b706c9ac346aea35e33058f35abe5"
+  },
+  {
+    "trial_number": 7,
+    "value": 0.0006421489524655044,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 1,
+      "dropout": 0.2159554306213737,
+      "lr": 0.00080749013512319,
+      "batch_size": 16,
+      "epochs": 18,
+      "patience": 3
+    },
+    "state": "1",
+    "mlflow_run_id": "8d6305fa26c04494b5d650f230c5840c"
+  },
+  {
+    "trial_number": 8,
+    "value": 0.0005548046221604657,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 1,
+      "dropout": 0.30481101953835205,
+      "lr": 0.0006210091911101955,
+      "batch_size": 16,
+      "epochs": 33,
+      "patience": 9
+    },
+    "state": "1",
+    "mlflow_run_id": "e55882d7a8ab4e28aeb964e2723b7f3c"
+  },
+  {
+    "trial_number": 9,
+    "value": 0.0005775818791544924,
+    "params": {
+      "hidden_size": 80,
+      "num_layers": 2,
+      "dropout": 0.3263315805624927,
+      "lr": 0.0020367448517796026,
+      "batch_size": 32,
+      "epochs": 32,
+      "patience": 7
+    },
+    "state": "1",
+    "mlflow_run_id": "f88b97ad22024922b3dde2b08166c49b"
+  }
+]
