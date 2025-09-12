@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: sa-private-mlflow
+  namespace: lstm-iqu
+  annotations:
+    serving.kserve.io/s3-endpoint: sunrise-minio.mlflow.svc.cluster.local:5081
+    serving.kserve.io/s3-usehttps: "0"
+    serving.kserve.io/s3-verifyssl: "0"
+    serving.kserve.io/s3-region: us-east-1
+    serving.kserve.io/s3-useanoncredential: "false"
+    serving.kserve.io/s3-usevirtualbucket: "false"
+    serving.kserve.io/s3-credentials-secret-name: minio-mlflow-artifacts
+    serving.kserve.io/storageSecretName: minio-mlflow-artifacts
+#imagePullSecrets:
+#  - name: dockerhub-pull-secret
+secrets:
+  - name: minio-mlflow-artifacts

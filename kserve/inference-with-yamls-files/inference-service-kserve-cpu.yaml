@@ -1,0 +1,14 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "test-24-inference"
+  namespace: lstm-iqu 
+spec:
+  predictor:
+    serviceAccountName: sa-private-mlflow
+    model:
+      modelFormat:
+        name: mlflow
+      #protocolVersion: v2
+      storageUri: "s3://mlflow/27/5a0bfc55915a4510a2de21fa842d64aa/artifacts/model"
+      runtime: kserve-mlserver
