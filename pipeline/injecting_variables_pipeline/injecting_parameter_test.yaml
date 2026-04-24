@@ -1,0 +1,87 @@
+# PIPELINE DEFINITION
+# Name: sunrise-parameter-injection-demo
+# Description: Demo pipeline that verifies runtime parameter injection in Kubeflow.
+# Inputs:
+#    data_url: str [Default: '']
+#    exp_id: str [Default: '']
+#    status_url: str [Default: '']
+components:
+  comp-get-data-batch:
+    executorLabel: exec-get-data-batch
+    inputDefinitions:
+      parameters:
+        data_url:
+          parameterType: STRING
+        exp_id:
+          parameterType: STRING
+        status_url:
+          parameterType: STRING
+deploymentSpec:
+  executors:
+    exec-get-data-batch:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - get_data_batch
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.11.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'minio==7.1.14'\
+          \ && \"$0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef get_data_batch(exp_id: str, status_url: str, data_url: str) ->\
+          \ None:\n    print(f\"exp_id={exp_id}\")\n    print(f\"status_url={status_url}\"\
+          )\n    print(f\"data_url={data_url}\")\n\n"
+        image: docker.io/jhofydu/pytorch-kfp:v1.0.0
+pipelineInfo:
+  description: Demo pipeline that verifies runtime parameter injection in Kubeflow.
+  name: sunrise-parameter-injection-demo
+root:
+  dag:
+    tasks:
+      get-data-batch:
+        cachingOptions: {}
+        componentRef:
+          name: comp-get-data-batch
+        inputs:
+          parameters:
+            data_url:
+              componentInputParameter: data_url
+            exp_id:
+              componentInputParameter: exp_id
+            status_url:
+              componentInputParameter: status_url
+        taskInfo:
+          name: get-data-batch
+  inputDefinitions:
+    parameters:
+      data_url:
+        defaultValue: ''
+        isOptional: true
+        parameterType: STRING
+      exp_id:
+        defaultValue: ''
+        isOptional: true
+        parameterType: STRING
+      status_url:
+        defaultValue: ''
+        isOptional: true
+        parameterType: STRING
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.11.0

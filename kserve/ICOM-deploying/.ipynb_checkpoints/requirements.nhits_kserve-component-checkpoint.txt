@@ -1,0 +1,3 @@
+kserve==0.15.0
+kubernetes>=28.1.0,<31
+mlflow==2.20.1
